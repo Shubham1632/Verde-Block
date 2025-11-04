@@ -1,8 +1,15 @@
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Checkbox } from "@/components/ui/checkbox";
+import * as emailjs from "@emailjs/browser";
 import { useState } from "react";
 import { toast } from "sonner";
 
@@ -17,12 +24,12 @@ const InvestorPopup = ({ isOpen, onClose }: InvestorPopupProps) => {
     email: "",
     investmentRange: "",
     isAccredited: false,
-    notifyLaunch: false
+    notifyLaunch: false,
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Basic validation
     if (!formData.name || !formData.email || !formData.investmentRange) {
       toast.error("Please fill in all required fields");
@@ -36,20 +43,50 @@ const InvestorPopup = ({ isOpen, onClose }: InvestorPopupProps) => {
       return;
     }
 
-    // Here you would normally send this to your backend
-    console.log("Form submitted:", formData);
-    
-    toast.success("Thank you for your interest! We'll be in touch soon.");
-    onClose();
-    
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      investmentRange: "",
-      isAccredited: false,
-      notifyLaunch: false
-    });
+    // Send via EmailJS (client-side)
+    try {
+      const env = import.meta.env as unknown as Record<
+        string,
+        string | undefined
+      >;
+      const serviceId = env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = env.VITE_EMAILJS_TEMPLATE_ID;
+      const publicKey = env.VITE_EMAILJS_PUBLIC_KEY;
+
+      if (!serviceId || !templateId || !publicKey) {
+        console.error("EmailJS environment variables are not set");
+        toast.error(
+          "Email service not configured. Please contact the site administrator."
+        );
+        return;
+      }
+
+      const templateParams = {
+        name: formData.name,
+        email: formData.email,
+        investmentRange: formData.investmentRange,
+        isAccredited: formData.isAccredited ? "Yes" : "No",
+        notifyLaunch: formData.notifyLaunch ? "Yes" : "No",
+        submittedAt: new Date().toISOString(),
+      };
+
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+
+      toast.success("Thank you for your interest! We'll be in touch soon.");
+      onClose();
+
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        investmentRange: "",
+        isAccredited: false,
+        notifyLaunch: false,
+      });
+    } catch (error) {
+      console.error("EmailJS send error", error);
+      toast.error("Submission failed. Please try again later.");
+    }
   };
 
   return (
@@ -57,10 +94,12 @@ const InvestorPopup = ({ isOpen, onClose }: InvestorPopupProps) => {
       <DialogContent className="sm:max-w-[500px]">
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold">
-            Join VerdeBlock's <span className="text-gradient">Investor Network</span>
+            Join VerdeBlock's{" "}
+            <span className="text-gradient">Investor Network</span>
           </DialogTitle>
           <DialogDescription className="text-base">
-            Be part of Milan's green skyline. Register your interest and unlock tokenized investment opportunities.
+            Be part of Milan's green skyline. Register your interest and unlock
+            tokenized investment opportunities.
           </DialogDescription>
         </DialogHeader>
 
@@ -71,7 +110,9 @@ const InvestorPopup = ({ isOpen, onClose }: InvestorPopupProps) => {
               id="name"
               placeholder="John Doe"
               value={formData.name}
-              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              onChange={(e) =>
+                setFormData({ ...formData, name: e.target.value })
+              }
               required
             />
           </div>
@@ -83,7 +124,9 @@ const InvestorPopup = ({ isOpen, onClose }: InvestorPopupProps) => {
               type="email"
               placeholder="john@example.com"
               value={formData.email}
-              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              onChange={(e) =>
+                setFormData({ ...formData, email: e.target.value })
+              }
               required
             />
           </div>
@@ -94,7 +137,9 @@ const InvestorPopup = ({ isOpen, onClose }: InvestorPopupProps) => {
               id="investment"
               className="w-full h-10 px-3 rounded-md border border-input bg-background text-foreground"
               value={formData.investmentRange}
-              onChange={(e) => setFormData({ ...formData, investmentRange: e.target.value })}
+              onChange={(e) =>
+                setFormData({ ...formData, investmentRange: e.target.value })
+              }
               required
             >
               <option value="">Select range</option>
@@ -110,7 +155,7 @@ const InvestorPopup = ({ isOpen, onClose }: InvestorPopupProps) => {
               <Checkbox
                 id="accredited"
                 checked={formData.isAccredited}
-                onCheckedChange={(checked) => 
+                onCheckedChange={(checked) =>
                   setFormData({ ...formData, isAccredited: checked as boolean })
                 }
               />
@@ -126,7 +171,7 @@ const InvestorPopup = ({ isOpen, onClose }: InvestorPopupProps) => {
               <Checkbox
                 id="notify"
                 checked={formData.notifyLaunch}
-                onCheckedChange={(checked) => 
+                onCheckedChange={(checked) =>
                   setFormData({ ...formData, notifyLaunch: checked as boolean })
                 }
               />
@@ -144,7 +189,8 @@ const InvestorPopup = ({ isOpen, onClose }: InvestorPopupProps) => {
           </Button>
 
           <p className="text-xs text-muted-foreground text-center">
-            By submitting, you agree to be contacted by VerdeBlock regarding investment opportunities.
+            By submitting, you agree to be contacted by VerdeBlock regarding
+            investment opportunities.
           </p>
         </form>
       </DialogContent>

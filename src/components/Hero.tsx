@@ -1,6 +1,6 @@
+import milanHero from "@/assets/milan-skyline.jpg";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import milanHero from "@/assets/milan-skyline-hero.jpg";
 
 interface HeroProps {
   onCtaClick: () => void;
@@ -11,12 +11,12 @@ const Hero = ({ onCtaClick }: HeroProps) => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src={milanHero} 
-          alt="Milan's modern skyline" 
+        <img
+          src={milanHero}
+          alt="Milan's modern skyline"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-background" />
       </div>
 
       {/* Content */}
@@ -28,28 +28,33 @@ const Hero = ({ onCtaClick }: HeroProps) => {
           One Token at a Time
         </p>
         <p className="text-lg sm:text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-          Invest in Milan's premium commercial real estate through blockchain-powered tokenization. 
-          Fractional ownership starts at €5,000.
+          Invest in Milan's premium commercial real estate through
+          blockchain-powered tokenization. Fractional ownership starts at
+          €5,000.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Button 
-            size="lg" 
+          <Button
+            size="lg"
             className="bg-primary hover:bg-primary/90 text-white text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-all"
             onClick={onCtaClick}
           >
             Join the Investor Network
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
-          <Button 
-            size="lg" 
+          <Button
+            size="lg"
             variant="outline"
-            className="border-2 border-white text-white hover:bg-white hover:text-foreground text-lg px-8 py-6"
-            onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+            className="border-2 border-white text-black hover:bg-white hover:text-foreground text-lg px-8 py-6"
+            onClick={() =>
+              document
+                .getElementById("about")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
           >
             Learn More
           </Button>
         </div>
-        
+
         {/* Stats Bar */}
         <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto">
           <div className="bg-white/10 backdrop-blur-md rounded-lg p-6 border border-white/20">
