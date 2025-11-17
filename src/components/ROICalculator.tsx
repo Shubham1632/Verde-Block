@@ -1,26 +1,28 @@
-import { useState } from "react";
 import { Slider } from "@/components/ui/slider";
 import { Calculator } from "lucide-react";
+import { useState } from "react";
 
 const ROICalculator = () => {
   const [investment, setInvestment] = useState([5000]);
-  
+
   const calculateReturns = (amount: number) => {
-    const eTokenYield = 0.084; // 8.4%
+    const coreIncomeYield = 0.084; // 8.4% illustrative
     const years = 3;
-    const irr = 0.14; // 14% average
-    
-    const annualReturn = amount * eTokenYield;
+    const irr = 0.14; // 14% illustrative
+
+    const annualReturn = amount * coreIncomeYield;
     const totalReturn = amount * (Math.pow(1 + irr, years) - 1);
     const finalValue = amount + totalReturn;
-    
+
     return {
-      annual: annualReturn.toLocaleString('en-US', { maximumFractionDigits: 0 }),
-      total: totalReturn.toLocaleString('en-US', { maximumFractionDigits: 0 }),
-      final: finalValue.toLocaleString('en-US', { maximumFractionDigits: 0 })
+      annual: annualReturn.toLocaleString("en-US", {
+        maximumFractionDigits: 0,
+      }),
+      total: totalReturn.toLocaleString("en-US", { maximumFractionDigits: 0 }),
+      final: finalValue.toLocaleString("en-US", { maximumFractionDigits: 0 }),
     };
   };
-  
+
   const returns = calculateReturns(investment[0]);
 
   return (
@@ -31,7 +33,7 @@ const ROICalculator = () => {
             Your Investment <span className="text-gradient">Can Grow</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            See potential returns based on historical E-Token performance
+            See potential returns based on illustrative PPS model assumptions
           </p>
         </div>
 
@@ -69,31 +71,52 @@ const ROICalculator = () => {
             {/* Results */}
             <div className="grid sm:grid-cols-3 gap-6">
               <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl p-6 border border-primary/20">
-                <div className="text-sm text-muted-foreground mb-2">Annual Income</div>
-                <div className="text-3xl font-bold text-primary">€{returns.annual}</div>
-                <div className="text-sm text-muted-foreground mt-1">Per year at 8.4%</div>
+                <div className="text-sm text-muted-foreground mb-2">
+                  Annual Income
+                </div>
+                <div className="text-3xl font-bold text-primary">
+                  €{returns.annual}
+                </div>
+                <div className="text-sm text-muted-foreground mt-1">
+                  Per year at 8.4%
+                </div>
               </div>
 
               <div className="bg-gradient-to-br from-secondary/10 to-secondary/5 rounded-2xl p-6 border border-secondary/20">
-                <div className="text-sm text-muted-foreground mb-2">Total Return</div>
-                <div className="text-3xl font-bold text-secondary">€{returns.total}</div>
-                <div className="text-sm text-muted-foreground mt-1">Over 3 years</div>
+                <div className="text-sm text-muted-foreground mb-2">
+                  Total Return
+                </div>
+                <div className="text-3xl font-bold text-secondary">
+                  €{returns.total}
+                </div>
+                <div className="text-sm text-muted-foreground mt-1">
+                  Over 3 years
+                </div>
               </div>
 
               <div className="bg-gradient-to-br from-accent/10 to-accent/5 rounded-2xl p-6 border border-accent/20">
-                <div className="text-sm text-muted-foreground mb-2">Portfolio Value</div>
-                <div className="text-3xl font-bold text-accent">€{returns.final}</div>
-                <div className="text-sm text-muted-foreground mt-1">After 3 years</div>
+                <div className="text-sm text-muted-foreground mb-2">
+                  Portfolio Value
+                </div>
+                <div className="text-3xl font-bold text-accent">
+                  €{returns.final}
+                </div>
+                <div className="text-sm text-muted-foreground mt-1">
+                  After 3 years
+                </div>
               </div>
             </div>
 
             <div className="bg-muted/30 rounded-xl p-6 text-sm text-muted-foreground">
               <p className="mb-2">
-                <strong>Assumptions:</strong> Calculation based on E-Token historical performance of ~8.4% annual yield 
-                and 14% IRR over 3 years. Past performance does not guarantee future results.
+                <strong>Assumptions:</strong> Calculation based on a Core Income
+                PPS illustrative annual yield of ~8.4% and an illustrative IRR
+                of 14% over 3 years. These figures are for example purposes only
+                and do not guarantee future results.
               </p>
               <p>
-                Returns are subject to market conditions, property performance, and may vary. This is for illustrative purposes only.
+                Returns are subject to market conditions, property performance,
+                and may vary. This is for illustrative purposes only.
               </p>
             </div>
           </div>
@@ -103,8 +126,12 @@ const ROICalculator = () => {
   );
 };
 
-const Label = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
-  <label className={`font-medium ${className}`}>{children}</label>
-);
+const Label = ({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => <label className={`font-medium ${className}`}>{children}</label>;
 
 export default ROICalculator;

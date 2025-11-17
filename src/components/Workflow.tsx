@@ -2,29 +2,40 @@ const Workflow = () => {
   const steps = [
     {
       number: "01",
-      title: "SPV Formation",
-      description: "Each property is placed into a dedicated Italian SPV (S.r.l.) for full legal transparency and compliance."
+      title: "Developer Onboarding",
+      description:
+        "Developer uploads project details, financials and ESG metrics; VerdeBlock performs legal and technical due diligence.",
     },
     {
       number: "02",
-      title: "Tokenization",
-      description: "SPV's equity or debt is fractionalized into E-Tokens (equity shares) or G-Tokens (retrofit bonds)."
+      title: "PPS Structuring",
+      description:
+        "Standardized PPS contract defines duration, investor returns, exit conditions and ESG bonus terms under a compliant legal framework.",
     },
     {
       number: "03",
-      title: "Investor Onboarding",
-      description: "Complete KYC/AML verification, pay in EUR or stablecoins, and receive tokens directly in your wallet."
+      title: "Digital Representation",
+      description:
+        "PPS rights are represented as digital records for transparency and automated execution — these represent contractual rights, not ownership shares.",
     },
     {
       number: "04",
-      title: "Earning Returns",
-      description: "Quarterly rental income via smart contracts. ESG bonuses triggered when verified by IoT + audit data."
+      title: "Capital Raise",
+      description:
+        "Investors subscribe via VerdeBlock; funds flow to escrow or a supervised project account under regulated custody arrangements.",
     },
     {
       number: "05",
-      title: "Exit / Liquidity",
-      description: "Tokens tradable on VerdeBlock's marketplace. Buyback/redemption at asset sale or refinance."
-    }
+      title: "Execution & Reporting",
+      description:
+        "Developer executes the project; VerdeBlock automates distributions, ESG progress reporting (auditor/IoT verified) and compliance reports.",
+    },
+    {
+      number: "06",
+      title: "Exit",
+      description:
+        "Predefined exit at maturity, sale or refinance with automatic return of funds — designed for predictable returns, not secondary trading.",
+    },
   ];
 
   return (
@@ -32,17 +43,19 @@ const Workflow = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold mb-6">
-            From Milan Buildings to <span className="text-gradient">Your Wallet</span>
+            From Milan Projects to{" "}
+            <span className="text-gradient">Transparent Returns</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            A transparent, compliant journey from property selection to token ownership
+            A compliant, impact-oriented journey from project onboarding to
+            automated payouts and ESG reporting
           </p>
         </div>
 
         <div className="max-w-5xl mx-auto">
           {steps.map((step, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className="relative mb-12 last:mb-0 animate-fade-in"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
@@ -57,7 +70,9 @@ const Workflow = () => {
                 {/* Content */}
                 <div className="flex-1 bg-card rounded-2xl p-6 sm:p-8 border border-border hover:shadow-lg transition-shadow">
                   <h3 className="text-2xl font-bold mb-3">{step.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{step.description}</p>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {step.description}
+                  </p>
                 </div>
               </div>
 

@@ -25,12 +25,13 @@ const Hero = ({ onCtaClick }: HeroProps) => {
           Building Milan's <span className="text-gradient">Green Future</span>
         </h1>
         <p className="text-xl sm:text-2xl text-white/90 mb-4 max-w-3xl mx-auto font-serif italic">
-          One Token at a Time
+          Predictable returns from ESG-focused PPS contracts
         </p>
         <p className="text-lg sm:text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-          Invest in Milan's premium commercial real estate through
-          blockchain-powered tokenization. Fractional ownership starts at
-          €5,000.
+          VerdeBlock helps developers raise ESG-focused capital through
+          digitally represented Profit Participation System (PPS) contracts —
+          enabling investors to earn predictable, transparent returns from
+          sustainable buildings without owning them.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Button
