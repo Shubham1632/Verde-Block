@@ -1,27 +1,31 @@
-import { Shield, FileCheck, Lock, BarChart3 } from "lucide-react";
+import { BarChart3, FileCheck, Lock, Shield } from "lucide-react";
 
 const Compliance = () => {
   const features = [
     {
       icon: Shield,
-      title: "EU DLT Pilot Regime",
-      description: "Fully compliant under EU regulations for tokenized securities"
+      title: "PPS / Securitization Compliance",
+      description:
+        "Structuring options under Italian PPS/SFP framework or Luxembourg securitization for cross-border investor clarity",
     },
     {
       icon: Lock,
-      title: "ERC-3643 Standard",
-      description: "Tokens issued on Ethereum/Polygon with institutional-grade security"
+      title: "Custody & Payments",
+      description:
+        "Regulated transfer and paying agents with supervised project accounts and escrow arrangements",
     },
     {
       icon: FileCheck,
       title: "KYC/AML Compliant",
-      description: "Off-chain verification with no personal data stored on blockchain"
+      description:
+        "Investor verification via licensed providers; personal data is processed according to GDPR",
     },
     {
       icon: BarChart3,
       title: "Independent Audits",
-      description: "Quarterly financials and EPC audits verified by third parties"
-    }
+      description:
+        "Quarterly financials and EPC audits verified by independent third parties",
+    },
   ];
 
   return (
@@ -29,10 +33,12 @@ const Compliance = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold mb-6">
-            <span className="text-gradient">Regulatory</span> & Security Framework
+            <span className="text-gradient">Regulatory</span> & Security
+            Framework
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Built on institutional-grade infrastructure with full regulatory compliance
+            Built on institutional-grade infrastructure with full regulatory
+            compliance
           </p>
         </div>
 
@@ -40,7 +46,7 @@ const Compliance = () => {
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
-              <div 
+              <div
                 key={index}
                 className="bg-card rounded-2xl p-6 border border-border hover:shadow-lg transition-shadow"
               >
@@ -48,30 +54,44 @@ const Compliance = () => {
                   <Icon className="w-6 h-6 text-primary" />
                 </div>
                 <h3 className="text-lg font-bold mb-2">{feature.title}</h3>
-                <p className="text-muted-foreground text-sm">{feature.description}</p>
+                <p className="text-muted-foreground text-sm">
+                  {feature.description}
+                </p>
               </div>
             );
           })}
         </div>
 
         <div className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-3xl p-8 sm:p-12">
-          <h3 className="text-2xl font-bold mb-6 text-center">Risk Mitigation</h3>
+          <h3 className="text-2xl font-bold mb-6 text-center">
+            Risk Mitigation
+          </h3>
           <div className="grid sm:grid-cols-2 gap-6">
             <div className="flex gap-3">
               <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0" />
-              <p className="text-foreground/90">Insurance and performance bonds mitigate retrofit and execution risks</p>
+              <p className="text-foreground/90">
+                Insurance and performance bonds mitigate retrofit and execution
+                risks
+              </p>
             </div>
             <div className="flex gap-3">
               <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0" />
-              <p className="text-foreground/90">Transparent quarterly reporting on all financial and ESG metrics</p>
+              <p className="text-foreground/90">
+                Transparent quarterly reporting on all financial and ESG metrics
+              </p>
             </div>
             <div className="flex gap-3">
               <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0" />
-              <p className="text-foreground/90">Legal SPV structure ensures asset protection and investor rights</p>
+              <p className="text-foreground/90">
+                Legal SPV structure ensures asset protection and investor rights
+              </p>
             </div>
             <div className="flex gap-3">
               <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0" />
-              <p className="text-foreground/90">Smart contract audits by leading blockchain security firms</p>
+              <p className="text-foreground/90">
+                Technical and process audits for automation and payout logic;
+                independent legal review of PPS contracts
+              </p>
             </div>
           </div>
         </div>

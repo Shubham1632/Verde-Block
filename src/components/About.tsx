@@ -1,4 +1,4 @@
-import { Building2, TrendingUp, Leaf } from "lucide-react";
+import { Building2, Leaf, TrendingUp } from "lucide-react";
 
 const About = () => {
   return (
@@ -9,9 +9,11 @@ const About = () => {
             Unlocking <span className="text-gradient">Milan's Skyline</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            VerdeBlock connects global investors to Milan's top commercial real estate through 
-            tokenized fractional ownership — merging traditional property investing with blockchain 
-            transparency and ESG impact.
+            VerdeBlock helps real estate developers raise ESG-focused capital
+            through standardized Profit Participation System (PPS) contracts.
+            Investors gain contractual rights to share cash flows from
+            sustainable projects — with clear legal terms, measurable ESG KPIs,
+            and automated reporting.
           </p>
         </div>
 
@@ -23,7 +25,9 @@ const About = () => {
             </div>
             <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
             <p className="text-muted-foreground leading-relaxed">
-              Make Grade A commercial real estate accessible, liquid, and sustainable for investors worldwide.
+              Make sustainable real estate funding faster, compliant, and
+              transparent — connecting global investors with Italian developers
+              through contractual participation.
             </p>
           </div>
 
@@ -33,7 +37,9 @@ const About = () => {
             </div>
             <h3 className="text-2xl font-bold mb-4">Our Vision</h3>
             <p className="text-muted-foreground leading-relaxed">
-              Bridge the multi-billion-euro retrofit funding gap and accelerate Milan's path to EU 2030 energy goals.
+              Become Europe’s leading platform for digitally-enabled, ESG-driven
+              real estate participation, leveraging standardized PPS contracts
+              to enable green capital for sustainable urban transformation.
             </p>
           </div>
 
@@ -43,41 +49,67 @@ const About = () => {
             </div>
             <h3 className="text-2xl font-bold mb-4">ESG Impact</h3>
             <p className="text-muted-foreground leading-relaxed">
-              Every investment funds retrofits, improving energy efficiency, asset value, and Milan's sustainability.
+              Projects integrate measurable ESG KPIs (energy, EPC, CO₂) with
+              third-party verification to align investor returns with tangible
+              sustainability outcomes.
             </p>
           </div>
         </div>
 
         {/* Key Value Props */}
         <div className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-3xl p-8 sm:p-12">
-          <h3 className="text-3xl font-bold mb-8 text-center">Why VerdeBlock?</h3>
+          <h3 className="text-3xl font-bold mb-8 text-center">
+            Why VerdeBlock?
+          </h3>
           <div className="grid sm:grid-cols-2 gap-6">
             <div className="flex gap-4">
               <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0" />
               <div>
-                <h4 className="font-semibold text-lg mb-2">Fractional Investment Access</h4>
-                <p className="text-muted-foreground">Invest in Milan's top-tier properties starting at €5K. Democratizes access beyond institutional investors.</p>
+                <h4 className="font-semibold text-lg mb-2">
+                  PPS Contract Access
+                </h4>
+                <p className="text-muted-foreground">
+                  Access curated, developer-backed PPS offerings with clear
+                  contractual returns and exit horizons.
+                </p>
               </div>
             </div>
             <div className="flex gap-4">
               <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0" />
               <div>
-                <h4 className="font-semibold text-lg mb-2">Real Liquidity in Real Estate</h4>
-                <p className="text-muted-foreground">Tradable security tokens on regulated secondary market with quarterly NAV-based buyback windows.</p>
+                <h4 className="font-semibold text-lg mb-2">
+                  Predictable Exit Terms
+                </h4>
+                <p className="text-muted-foreground">
+                  Predefined exit or maturity conditions (sale, refinance, or
+                  maturity) — designed for predictable capital return, not
+                  speculative trading.
+                </p>
               </div>
             </div>
             <div className="flex gap-4">
               <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0" />
               <div>
-                <h4 className="font-semibold text-lg mb-2">Sustainability-Driven Returns</h4>
-                <p className="text-muted-foreground">Fund retrofits that improve energy efficiency. ESG-linked bonuses triggered via IoT + auditor data.</p>
+                <h4 className="font-semibold text-lg mb-2">
+                  Sustainability-Driven Returns
+                </h4>
+                <p className="text-muted-foreground">
+                  Projects must define ESG KPIs and offer ESG-linked bonus terms
+                  verified by auditors or IoT providers.
+                </p>
               </div>
             </div>
             <div className="flex gap-4">
               <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0" />
               <div>
-                <h4 className="font-semibold text-lg mb-2">Blockchain Transparency</h4>
-                <p className="text-muted-foreground">All payouts, bonuses, and metrics managed by smart contracts. Real-time dashboards powered by oracles.</p>
+                <h4 className="font-semibold text-lg mb-2">
+                  Digital Transparency
+                </h4>
+                <p className="text-muted-foreground">
+                  Distributions, ESG metrics and compliance reports are
+                  digitized and automated for clarity — smart contracts are used
+                  for execution and record-keeping, not speculative trading.
+                </p>
               </div>
             </div>
           </div>

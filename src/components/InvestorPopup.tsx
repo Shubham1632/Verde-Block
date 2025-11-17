@@ -99,7 +99,8 @@ const InvestorPopup = ({ isOpen, onClose }: InvestorPopupProps) => {
           </DialogTitle>
           <DialogDescription className="text-base">
             Be part of Milan's green skyline. Register your interest and unlock
-            tokenized investment opportunities.
+            PPS-based investment opportunities with clear legal terms and
+            measurable ESG impact.
           </DialogDescription>
         </DialogHeader>
 
