@@ -1,5 +1,5 @@
 import greenOffice from "@/assets/green-office.jpg";
-import { Coins, TrendingUp } from "lucide-react";
+import { Coins, Layers, TrendingUp } from "lucide-react";
 
 const TokenModel = () => {
   return (
@@ -16,7 +16,7 @@ const TokenModel = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="grid lg:grid-cols-3 gap-8">
           {/* Core Income PPS */}
           <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-3xl p-8 border-2 border-primary/20 hover:border-primary/40 transition-colors">
             <div className="flex items-center gap-4 mb-6">
@@ -126,6 +126,64 @@ const TokenModel = () => {
               </div>
               <div className="text-lg text-muted-foreground">
                 Target IRR: 12–15% (includes ESG bonus for verified outcomes)
+              </div>
+            </div>
+          </div>
+
+          {/* Development / New Project PPS */}
+          <div className="bg-gradient-to-br from-secondary/10 to-secondary/5 rounded-3xl p-8 border-2 border-emerald/20 hover:border-emerald/40 transition-colors">
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-14 h-14 bg-emerald-600 rounded-xl flex items-center justify-center">
+                <Layers className="w-7 h-7 text-white" />
+              </div>
+              <div>
+                <h3 className="text-3xl font-bold">
+                  Development / New Project (PPS)
+                </h3>
+                <p className="text-muted-foreground">
+                  PPS for new construction and placemaking projects with phased
+                  milestones and offtake structures
+                </p>
+              </div>
+            </div>
+
+            <div className="space-y-4 mb-6">
+              <div className="flex items-start gap-3">
+                <div className="w-1.5 h-1.5 bg-emerald-600 rounded-full mt-2" />
+                <p className="text-foreground/90">
+                  Funds new construction (e.g., MIND-type mixed-use sustainable
+                  districts)
+                </p>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-1.5 h-1.5 bg-emerald-600 rounded-full mt-2" />
+                <p className="text-foreground/90">
+                  Milestone-based distributions and offtake / lease agreements
+                </p>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-1.5 h-1.5 bg-emerald-600 rounded-full mt-2" />
+                <p className="text-foreground/90">
+                  Strong ESG integration and placemaking incentives
+                </p>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-1.5 h-1.5 bg-emerald-600 rounded-full mt-2" />
+                <p className="text-foreground/90">
+                  Higher risk with higher return potential
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-white/50 dark:bg-black/20 rounded-xl p-6 border border-emerald/20">
+              <div className="text-sm text-muted-foreground mb-2">
+                Typical Structure
+              </div>
+              <div className="text-3xl font-bold text-emerald-600 mb-1">
+                5–7 year duration
+              </div>
+              <div className="text-lg text-muted-foreground">
+                Target IRR: 12–14% (includes construction returns and exit)
               </div>
             </div>
           </div>
